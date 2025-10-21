@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Servicio de Mantenimiento de Aires Acondicionados</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f8fb;
+      color: #333;
+    }
+    header {
+      /* Imagen de fondo en header */
+      background: url('fondo-refrigeracion.jpg') no-repeat center center;
+      background-size: cover;
+      color: white;
+      text-align: center;
+      padding: 4rem 1rem;
+    }
+    header h1 {
+      font-size: 3rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    header p {
+      font-size: 1.5rem;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    }
+    nav {
+      background: #023e8a;
+      padding: 0.5rem;
+      text-align: center;
+    }
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .container {
+      width: 90%;
+      max-width: 1000px;
+      margin: auto;
+      padding: 2rem 0;
+    }
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    h2 {
+      color: #0077b6;
+      margin-bottom: 1rem;
+    }
+    .price-list table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+    .price-list th, .price-list td {
+      border: 1px solid #ccc;
+      padding: 0.8rem;
+      text-align: left;
+    }
+    .price-list th {
+      background-color: #0077b6;
+      color: white;
+    }
+    footer {
+      background: #03045e;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+    .contact-form {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    input, textarea, button {
+      width: 100%;
+      padding: 0.7rem;
+      margin: 0.5rem 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    button {
+      background: #0077b6;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #023e8a;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Servicio de Mantenimiento y Limpieza de Aires Acondicionados</h1>
+    <p>Tu aire, cámara frigorífica o refrigeración limpia y funcionando al 100%</p>
+  </header>
+
+  <nav>
+    <a href="#servicios">Servicios</a>
+    <a href="#precios">Precios</a>
+    <a href="#contacto">Contacto</a>
+    <a href="#nosotros">Nosotros</a>
+  </nav>
+
+  <div class="container" id="servicios">
+    <h2>Servicios</h2>
+    <div class="services">
+      <div class="card">
+        <h3>Limpieza profunda</h3>
+        <p>Eliminamos polvo, hongos y bacterias de tu equipo para mejorar la calidad del aire.</p>
+      </div>
+      <div class="card">
+        <h3>Mantenimiento preventivo</h3>
+        <p>Revisión completa del sistema para prevenir fallas y alargar la vida útil de tu aire acondicionado.</p>
+      </div>
+      <div class="card">
+        <h3>Recarga de gas</h3>
+        <p>Servicio rápido y seguro de recarga de gas refrigerante para un óptimo rendimiento.</p>
+      </div>
+      <div class="card">
+        <h3>Instalación</h3>
+        <p>Instalamos tu equipo garantizando seguridad y eficiencia en el montaje.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sección de Precios -->
+  <div class="container" id="precios">
+    <h2>Precios de Servicio</h2>
+    <div class="price-list">
+      <table>
+        <thead>
+          <tr>
+            <th>Servicio</th>
+            <th>Descripción</th>
+            <th>Precio estimativo (ARS)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Limpieza de cámara frigorífica pequeña</td>
+            <td>Retiro de polvo, higienización interior, sellado menor</td>
+            <td>$25.000 – $40.000</td>
+          </tr>
+          <tr>
+            <td>Mantenimiento completo de cámara mediana</td>
+            <td>Revisión de sistema, limpieza interna/external, cambio de filtros</td>
+            <td>$50.000 – $75.000</td>
+          </tr>
+          <tr>
+            <td>Mantenimiento de cámara grande / industrial</td>
+            <td>Servicio completo + ajustes, posibles recambios de piezas internas</td>
+            <td>$80.000 – $120.000</td>
+          </tr>
+          <tr>
+            <td>Recarga de gas refrigerante</td>
+            <td>Cantidad común para cámaras de tamaño medio</td>
+            <td>$15.000 – $30.000</td>
+          </tr>
+          <tr>
+            <td>Servicio de emergencia / urgencia</td>
+            <td>Atención rápida fuera de horario o día feriado</td>
+            <td>+20% sobre precio base</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="container" id="nosotros">
+    <h2>Sobre Nosotros</h2>
+    <p>Somos un equipo especializado en mantenimiento y limpieza de aires acondicionados y cámaras frigoríficas con más de 10 años de experiencia. Nuestro compromiso es brindarte un servicio profesional, rápido y garantizado para que disfrutes siempre de un aire limpio y fresco.</p>
+  </div>
+
+  <div class="container" id="contacto">
+    <h2>Contacto</h2>
+    <form class="contact-form" onsubmit="return enviarFormulario()">
+      <label>Nombre:</label>
+      <input type="text" name="nombre" required>
+      <label>Email:</label>
+      <input type="email" name="email" required>
+      <label>Mensaje:</label>
+      <textarea name="mensaje" rows="5" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Servicio de Mantenimiento de Aires Acondicionados | Todos los derechos reservados</p>
+  </footer>
+
+  <script>
+    function enviarFormulario() {
+      alert("Gracias por contactarnos, pronto te responderemos.");
+      return false; // evita que recargue la página
+    }
+  </script>
+</body>
+</html>
