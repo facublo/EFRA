@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Servicio de Mantenimiento de Aires Acondicionados | Cristian Barrojo</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif; /* Fuente profesional */
+      margin: 0;
+      padding: 0;
+      background: #f4f8fb;
+      color: #333;
+      line-height: 1.6; /* Mejor legibilidad */
+    }
+    header {
+      /* Imagen de fondo en header */
+      background: url('fondo-refrigeracion.jpg') no-repeat center center; /* Asegúrate de que esta imagen exista */
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      padding: 5rem 1rem; /* Más minimalista y espacioso */
+      display: flex; /* Para centrar contenido */
+      flex-direction: column;
+      justify-content: center;
+      min-height: 40vh; /* Altura mínima para que se vea la imagen */
+    }
+    header h1 {
+      font-size: 3rem; /* Título más prominente y profesional */
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.7); /* Sombra más fuerte para legibilidad */
+      margin-bottom: 0.5rem;
+    }
+    header p {
+      font-size: 1.5rem; /* Subtítulo claro */
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+      font-weight: 400; /* Peso de fuente más ligero */
+    }
+    nav {
+      background: #023e8a;
+      padding: 0.8rem 0; /* Más padding para un look más "premium" */
+      text-align: center;
+      position: sticky; /* Menú fijo */
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Sombra sutil para el nav */
+    }
+    nav a {
+      color: white;
+      margin: 0 15px; /* Espacio ajustado para más items */
+      text-decoration: none;
+      font-weight: 600; /* Fuente más audaz para navegación */
+      transition: color 0.2s;
+    }
+    nav a:hover {
+      color: #b3e0ff; /* Cambio de color al pasar el ratón */
+      text-decoration: none; /* Quitamos el subrayado por defecto en hover */
+    }
+    .container {
+      width: 90%;
+      max-width: 1100px; /* Un poco más ancho para galería */
+      margin: auto;
+      padding: 3rem 0; /* Más padding para secciones */
+    }
+    /* Grid para Servicios y Herramientas */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem; /* Más espacio entre tarjetas/imágenes */
+    }
+    /* Grid para Galería */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    .card {
+      background: white;
+      padding: 2rem; /* Más padding */
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1); /* Sombra más definida */
+      transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves */
+    }
+    .card:hover {
+      transform: translateY(-8px); /* Elevación más pronunciada */
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+    h2 {
+      color: #0056b3; /* Un azul un poco más oscuro y profesional */
+      margin-bottom: 2.5rem; /* Más espacio */
+      text-align: center;
+      font-size: 2.5rem; /* Títulos de sección más grandes */
+      font-weight: 700; /* Más énfasis */
+    }
+    h3 {
+      color: #0077b6; /* Color de subtítulos en cards */
+    }
+    .price-list table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      border-radius: 8px; /* Bordes redondeados para la tabla */
+      overflow: hidden; /* Para que los bordes redondeados funcionen bien */
+    }
+    .price-list th, .price-list td {
+      border: 1px solid #e0e0e0; /* Bordes más suaves */
+      padding: 1rem 1.2rem;
+      text-align: left;
+    }
+    .price-list th {
+      background-color: #0077b6;
+      color: white;
+      font-weight: 600;
+    }
+    .price-list tbody tr:nth-child(odd) {
+      background-color: #f9fbfd; /* Fondo ligeramente más claro para filas impares */
+    }
+    .price-list tbody tr:hover {
+      background-color: #e6f7ff; /* Resaltar fila al pasar el ratón */
+    }
+    
+    footer {
+      background: #03045e;
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem; /* Más padding */
+      margin-top: 3rem; /* Más espacio antes del footer */
+      font-size: 0.9rem;
+    }
+
+    /* Contact Form y Info */
+    .contact-form {
+      background: white;
+      padding: 2.5rem; /* Más padding */
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    }
+    input, textarea, button {
+      width: 100%;
+      padding: 1rem; /* Más padding en campos */
+      margin: 0.7rem 0;
+      border: 1px solid #d0d0d0; /* Borde más suave */
+      border-radius: 8px;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif; /* Fuente consistente */
+    }
+    button {
+      background: #0077b6;
+      color: white;
+      font-size: 1.2rem; /* Botón más grande */
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+    button:hover {
+      background: #023e8a;
+      transform: translateY(-2px); /* Pequeño efecto al hacer hover */
+    }
+
+    .contact-info {
+      text-align: center;
+      margin-bottom: 3rem; /* Más espacio */
+      padding: 2rem;
+      background: #e6f7ff;
+      border-radius: 12px;
+      border: 1px solid #b3e0ff;
+    }
+    .contact-info h3 {
+      margin-top: 0;
+      color: #023e8a;
+      font-size: 1.8rem;
+    }
+    .contact-info p {
+      font-size: 1.2rem;
+      margin: 0.8rem 0;
+    }
+    .contact-info a {
+      color: #0077b6;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .contact-info a:hover {
+      text-decoration: underline;
+      color: #0056b3;
+    }
+
+    /* WhatsApp FAB */
+    .whatsapp-fab {
+      position: fixed;
+      width: 65px; /* Un poco más grande */
+      height: 65px;
+      bottom: 30px; /* Más separado del borde */
+      right: 30px;
+      background-color: #25D366;
+      color: white;
+      border-radius: 50%;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3); /* Sombra más pronunciada */
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+    .whatsapp-fab:hover {
+      background-color: #128C7E;
+      transform: scale(1.15); /* Más "pop" al hacer hover */
+    }
+    .whatsapp-fab svg {
+      width: 35px; /* Icono un poco más grande */
+      height: 35px;
+      fill: white;
+    }
+
+    /* Sección de Galería */
+    .gallery-item {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        overflow: hidden; /* Para que la imagen se ajuste al radio del borde */
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .gallery-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
+    .gallery-item img {
+        width: 100%;
+        height: 220px; /* Altura fija para todas las imágenes */
+        object-fit: cover; /* Recorta la imagen para que cubra el espacio */
+        display: block;
+        transition: transform 0.3s ease;
+    }
+    .gallery-item img:hover {
+        transform: scale(1.05); /* Zoom sutil en la imagen */
+    }
+    .gallery-item .description {
+        padding: 1rem;
+        font-size: 0.95rem;
+        color: #555;
+        text-align: center;
+    }
+
+    /* Contador de visitas */
+    .visitor-counter {
+      margin-top: 1.5rem;
+      opacity: 0.8;
+      font-size: 0.85rem;
+    }
+    .visitor-counter img {
+        vertical-align: middle;
+        margin-left: 5px;
+    }
+
+    /* Media Queries para Responsividad */
+    @media (max-width: 768px) {
+        header h1 {
+            font-size: 2.2rem;
+        }
+        header p {
+            font-size: 1.2rem;
+        }
+        nav a {
+            margin: 0 8px; /* Ajuste fino para más items */
+            font-size: 0.85rem;
+        }
+        h2 {
+            font-size: 2rem;
+        }
+        .container {
+            padding: 2rem 0;
+        }
+        .card, .contact-form, .contact-info {
+            padding: 1.5rem;
+        }
+        .whatsapp-fab {
+            width: 55px;
+            height: 55px;
+            bottom: 20px;
+            right: 20px;
+        }
+        .whatsapp-fab svg {
+            width: 30px;
+            height: 30px;
+        }
+        .gallery-item img {
+            height: 180px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        header h1 {
+            font-size: 1.8rem;
+        }
+        header p {
+            font-size: 1rem;
+        }
+        nav {
+            padding: 0.8rem 0;
+            display: flex; /* Para que los enlaces de navegación se ajusten mejor */
+            flex-wrap: wrap; /* Permite que los enlaces pasen a la siguiente línea */
+            justify-content: center;
+        }
+        nav a {
+            margin: 5px 8px; /* Más espacio en vertical y menos en horizontal */
+            font-size: 0.8rem;
+        }
+        h2 {
+            font-size: 1.7rem;
+        }
+        .card-grid, .gallery-grid {
+            grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+        }
+        .card, .contact-form, .contact-info {
+            padding: 1rem;
+        }
+    }
+
+  </style>
+</head>
+<body>
+
+  <a href="https://wa.me/5493815690147?text=Hola%20Cristian,%20vi%20tu%20sitio%20web%20y%20me%20gustar%C3%ADa%20hacer%20una%20consulta%20sobre%20tus%20servicios%20de%20refrigeraci%C3%B3n." class="whatsapp-fab" target="_blank" aria-label="Contactar por WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+      <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27.2 106.1 27.2h.1c122.3 0 224-99.6 224-222 0-59.3-25.2-115-67.1-157zM223.9 439.7c-33.8 0-66.5-9.2-95.2-26.3l-6.7-4-70.8 18.6 19-69.1-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5c0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+    </svg>
+  </a>
+
+  <header>
+    <h1>Mantenimiento y Soluciones en Refrigeración</h1>
+    <p>Calidad, Eficiencia y Confianza en Cada Servicio</p>
+  </header>
+
+  <nav>
+    <a href="#servicios">Servicios</a>
+    <a href="#precios">Precios</a>
+    <a href="#galeria">Galería</a>
+    <a href="#herramientas">Herramientas</a> <a href="#nosotros">Sobre Mí</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+
+  <div class="container" id="servicios">
+    <h2>Nuestros Servicios</h2>
+    <div class="card-grid"> <div class="card">
+        <h3>Limpieza profunda de equipos</h3>
+        <p>Eliminamos polvo, hongos y bacterias. Mejoramos la calidad del aire y la eficiencia energética.</p>
+      </div>
+      <div class="card">
+        <h3>Mantenimiento preventivo integral</h3>
+        <p>Revisión exhaustiva para prevenir fallas, optimizar el rendimiento y extender la vida útil de tus equipos.</p>
+      </div>
+      <div class="card">
+        <h3>Recarga de gas refrigerante</h3>
+        <p>Servicio rápido y seguro para garantizar el óptimo funcionamiento y la capacidad de enfriamiento.</p>
+      </div>
+      <div class="card">
+        <h3>Instalación profesional de equipos</h3>
+        <p>Instalamos tu equipo con garantía de seguridad, eficiencia y cumplimiento de normativas.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" id="galeria">
+    <h2>Nuestros Trabajos</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="img/trabajo1.jpg" alt="Limpieza de aire acondicionado split">
+        <div class="description">Limpieza y desinfección de unidad interior.</div>
+      </div>
+      <div class="gallery-item">
+        <img src="img/trabajo2.jpg" alt="Instalación de cámara frigorífica">
+        <div class="description">Instalación de sistema de refrigeración industrial.</div>
+      </div>
+      <div class="gallery-item">
+        <img src="img/trabajo3.jpg" alt="Mantenimiento de unidad exterior">
+        <div class="description">Revisión y ajuste de unidad condensadora.</div>
+      </div>
+      <div class="gallery-item">
+        <img src="img/trabajo4.jpg" alt="Reparación de ventilador">
+        <div class="description">Reparación y balanceo de ventilador.</div>
+      </div>
+      <div class="gallery-item">
+        <img src="img/trabajo5.jpg" alt="Mantenimiento de equipo central">
+        <div class="description">Mantenimiento de sistema de climatización central.</div>
+      </div>
+      <div class="gallery-item">
+        <img src="img/trabajo6.jpg" alt="Carga de gas en nevera comercial">
+        <div class="description">Recarga de refrigerante en heladera comercial.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" id="herramientas">
+    <h2>Herramientas de Trabajo</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h3>Manifold Digital de Precisión</h3>
+        <p>Utilizamos manómetros digitales para un diagnóstico exacto de presiones y temperaturas, asegurando la carga de refrigerante precisa y el máximo rendimiento.</p>
+      </div>
+      <div class="card">
+        <h3>Pinza Amperométrica (True RMS)</h3>
+        <p>Herramienta clave de mi formación en Ing. Eléctrica. Permite medir consumos eléctricos reales, detectar fallas en compresores y garantizar la seguridad eléctrica total del equipo.</p>
+      </div>
+      <div class="card">
+        <h3>Bomba de Vacío de Alto Caudal</h3>
+        <p>Esencial para instalaciones y reparaciones. Eliminamos el 100% de la humedad y aire del sistema antes de la carga de gas, previniendo fallas futuras y corrosión interna.</p>
+      </div>
+      <div class="card">
+        <h3>Hidrolavadora de Presión Regulable</h3>
+        <p>Para la limpieza profunda de serpentines y unidades exteriores sin dañar los delicados álabes de aluminio, restaurando la capacidad de intercambio de calor.</p>
+      </div>
+      <div class="card">
+        <h3>Termómetro Infrarrojo y de Contacto</h3>
+        <p>Medimos con precisión los diferenciales de temperatura (salto térmico) para verificar que el equipo enfría o calienta según las especificaciones del fabricante.</p>
+      </div>
+      <div class="card">
+        <h3>Detector de Fugas Electrónico</h3>
+        <p>Localizamos micro-fugas de gas refrigerante que son indetectables por métodos tradicionales, asegurando una reparación definitiva y protegiendo el medio ambiente.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" id="precios">
+    <h2>Precios de Servicio</h2>
+    <div class="price-list">
+      <table>
+        <thead>
+          <tr>
+            <th>Servicio</th>
+            <th>Descripción detallada</th>
+            <th>Precio estimativo (ARS)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Limpieza de cámara frigorífica pequeña</td>
+            <td>Retiro de polvo, higienización interior, revisión de sellos y drenajes.</td>
+            <td>$25.000 – $40.000</td>
+          </tr>
+          <tr>
+            <td>Mantenimiento completo de cámara mediana</td>
+            <td>Revisión de sistema eléctrico, limpieza interna/externa, cambio de filtros, control de presiones.</td>
+            <td>$50.000 – $75.000</td>
+          </tr>
+          <tr>
+            <td>Mantenimiento de cámara grande / industrial</td>
+            <td>Servicio completo, incluye ajustes de control, lubricación de componentes y posibles recambios de piezas.</td>
+            <td>$80.000 – $120.000</td>
+          </tr>
+          <tr>
+            <td>Recarga de gas refrigerante (por cantidad)</td>
+            <td>Diagnóstico de fuga, reparación si es menor, y recarga de gas R22/R410A (cantidad estándar).</td>
+            <td>$15.000 – $30.000</td>
+          </tr>
+          <tr>
+            <td>Servicio de emergencia / Urgencia</td>
+            <td>Atención fuera de horario comercial, fines de semana o feriados.</td>
+            <td>+20% sobre precio base</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="container" id="nosotros">
+    <h2>Sobre Mí</h2>
+    <div class="card"> 
+      <p>Mi nombre es <strong>Cristian Facundo Barrojo Lopez</strong>.</p>
+      <p>Actualmente, brindo servicios profesionales de mantenimiento y limpieza para una amplia gama de equipos de refrigeración, incluyendo aires acondicionados, cámaras frigoríficas y sistemas de ventilación.</p>
+      <p>Mi formación incluye estudios universitarios en <strong>Ingeniería Eléctrica</strong>, complementados con una especialización en <strong>Refrigeración del Instituto NOA</strong>. Esta combinación me permite ofrecer un servicio técnico de alta calidad, garantizando eficiencia y durabilidad en cada trabajo.</p>
+      <p>Mi compromiso es brindarte una solución profesional, rápida y garantizada.</p>
+    </div>
+  </div>
+
+  <div class="container" id="contacto">
+    <h2>Contacto</h2>
+
+    <div class="contact-info">
+      <h3>¿Prefieres contacto directo?</h3>
+      <p>
+        <a href="https://wa.me/5493815690147?text=Hola%20Cristian,%20vi%20tu%20sitio%20web%20y%20me%20gustar%C3%ADa%20hacer%20una%20consulta%20sobre%20tus%20servicios%20de%20refrigeraci%C3%B3n." target="_blank">
+          <strong>WhatsApp:</strong> 3815690147
+        </a>
+      </p>
+      <p>
+        <a href="mailto:faucundoba2scxlvry@gmail.com">
+          <strong>Email:</strong> faucundoba2scxlvry@gmail.com
+        </a>
+      </p>
+    </div>
+
+    <h3>O déjame tu consulta:</h3>
+    <form class="contact-form" onsubmit="return enviarFormulario()">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" required>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+      <label for="mensaje">Mensaje:</label>
+      <textarea id="mensaje" name="mensaje" rows="5" placeholder="Describe tu consulta o el servicio que necesitas..." required></textarea>
+      <button type="submit">Enviar Consulta</button>
+    </form>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Servicio de Mantenimiento de Aires Acondicionados | Cristian Barrojo | Todos los derechos reservados</p>
+    
+    <div class="visitor-counter">
+      Contador de visitas: 
+      <a href="https://www.hitwebcounter.com" target="_blank">
+        <img src="https://hitwebcounter.com/counter/counter.php?page=AQUÍ_VA_TU_ID_UNICO&style=0006&nbdigits=5&type=page&initCount=0" title="Contador de visitas" Alt="Contador de visitas" border="0" />
+      </a>
+    </div>
+
+  </footer>
+
+  <script>
+    function enviarFormulario() {
+      // Para un envío real, necesitarías un servicio de backend (PHP, Node.js, etc.) 
+      // o un servicio de formularios de terceros (Formspree, Getform).
+      // Por ahora, solo muestra la alerta y limpia el formulario.
+      alert("¡Gracias por tu consulta! Te responderé a la brevedad.");
+      
+      document.querySelector('.contact-form').reset(); // Limpia el formulario
+      
+      return false; // Evita que la página se recargue
+    }
+  </script>
+</body>
+</html>
